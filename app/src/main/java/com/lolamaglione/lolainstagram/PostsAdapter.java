@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.parse.ParseFile;
 
 import java.util.Date;
@@ -69,6 +70,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
         private ImageView ivUploadImage;
         private TextView tvDescription;
         private TextView tvTime;
+        private ImageView ivProfilePicture;
+        private TextView tvUsernameCaption;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,6 +79,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             ivUploadImage = itemView.findViewById(R.id.ivUploadPicture);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvTime = itemView.findViewById(R.id.tvTime);
+            ivProfilePicture = itemView.findViewById(R.id.ivProfilePicture);
+            tvUsernameCaption = itemView.findViewById(R.id.tvUsernameCaption);
+
         }
 
         public void bind(Post post) {
@@ -86,8 +92,17 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             tvTime.setText(post.calculateTimeAgo(createdAt));
             ParseFile image = post.getImage();
             if (image != null){
-                Glide.with(context).load(image.getUrl()).into(ivUploadImage);
+                Glide.with(context).load(image.getUrl()).apply(new RequestOptions()).into(ivUploadImage);
+                ViewGroup.LayoutParams layoutParams = itemView.getLayoutParams();
+                int width = layoutParams.width;
+                layoutParams.height = width;
+                itemView.setLayoutParams(layoutParams);
             }
+            ParseFile profileImage = post.getUser().getParseFile("profilePicture");
+            if (image != null) {
+                Glide.with(context).load(profileImage.getUrl()).apply(new RequestOptions().circleCrop()).into(ivProfilePicture);
+            }
+            tvUsernameCaption.setText(post.getUser().getUsername());
         }
     }
 }

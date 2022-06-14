@@ -186,10 +186,10 @@ public class MainActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.logout){
             logoutUser();
         }
-//        if(item.getItemId() == R.id.feed_activity){
-//            Intent intent = new Intent(MainActivity.this, FeedActivity.class);
-//            startActivity(intent);
-//        }
+        if(item.getItemId() == R.id.feed_activity){
+            Intent intent = new Intent(MainActivity.this, FeedActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 

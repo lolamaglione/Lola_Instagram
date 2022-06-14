@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ufi_heart_icon.xml" value="0.1545" />
         <entry key="app/src/main/res/layout/activity_feed.xml" value="0.203125" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.203125" />
+        <entry key="app/src/main/res/layout/item_post.xml" value="0.2750473022460937" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.203125" />
       </map>
     </option>

@@ -3,43 +3,151 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="0dp">
 
     <TextView
         android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@+id/ivProfilePicture"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="bold"
+        tools:text="username" />
+
+    <ImageView
+        android:id="@+id/ivProfilePicture"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        tools:text="username"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        android:layout_marginTop="2dp"
+        android:scaleType="centerCrop"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/ivUploadPicture"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/tvUsername"
-        android:layout_marginTop="10dp"
-        tools:srcCompat="@tools:sample/avatars"
-        android:scaleType="centerCrop"/>
+        android:layout_height="400dp"
+        android:layout_below="@+id/ivProfilePicture"
+        android:layout_marginTop="5dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1:1"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="41dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <RelativeLayout
+        android:id="@+id/llReactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivUploadPicture"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+
+        >
+
+        <ImageButton
+            android:id="@+id/ibLike"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="6dp"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            app:srcCompat="@drawable/ic_heart"
+            tools:scaleType="fitXY" />
+
+        <ImageButton
+            android:id="@+id/ibComment"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@+id/ibLike"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_comment" />
+
+        <ImageButton
+            android:id="@+id/ibSend"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@+id/ibComment"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ufi_new_direct" />
+
+        <ImageButton
+            android:id="@+id/ibSave"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@+id/ibSend"
+            android:background="#00FFFFFF"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_save" />
+
+        <TextView
+            android:id="@+id/tvLikes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ibLike"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="2dp"
+            android:text="X likes" />
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivUploadPicture"
-        android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:layout_below="@id/llReactions"
+        android:layout_alignRight="@+id/tvUsernameCaption"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="-338dp"
+        android:layout_toEndOf="@+id/tvUsernameCaption"
+        android:text="Caption" />
 
     <TextView
         android:id="@+id/tvTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ivUploadPicture"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toEndOf="@+id/tvUsername"
-        android:text="TextView" />
+        android:layout_below="@+id/tvDescription"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="1dp"
+        android:text="Time" />
+
+    <TextView
+        android:id="@+id/tvUsernameCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llReactions"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="7dp"
+        android:text="Username"
+        android:textStyle="bold" />
+
 </RelativeLayout>
