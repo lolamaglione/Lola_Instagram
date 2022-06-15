@@ -19,7 +19,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.lolamaglione.lolainstagram.EndlessRecyclerViewScrollListener;
 import com.lolamaglione.lolainstagram.Post;
 import com.lolamaglione.lolainstagram.R;
 import com.lolamaglione.lolainstagram.databinding.ActivityMainBinding;
@@ -95,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 

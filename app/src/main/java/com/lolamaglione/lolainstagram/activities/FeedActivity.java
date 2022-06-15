@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.lolamaglione.lolainstagram.EndlessRecyclerViewScrollListener;
 import com.lolamaglione.lolainstagram.Post;
 import com.lolamaglione.lolainstagram.PostsAdapter;
 import com.lolamaglione.lolainstagram.R;
@@ -31,6 +32,8 @@ public class FeedActivity extends AppCompatActivity {
     private PostsAdapter adapter;
     public static final String TAG = "FeedActivity";
     private SwipeRefreshLayout swipeContainer;
+    private EndlessRecyclerViewScrollListener scrollListener;
+    private int current_offset = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +50,10 @@ public class FeedActivity extends AppCompatActivity {
 
         rvPosts.setAdapter(adapter);
         rvPosts.setLayoutManager(new LinearLayoutManager(this));
-        queryPosts();
+        queryPosts(0);
 
         // Lookup the swipe container view
-        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.rvUploads);
         // Setup refresh listener which triggers new data loading
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -67,6 +70,25 @@ public class FeedActivity extends AppCompatActivity {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rvPosts.setLayoutManager(linearLayoutManager);
+
+        // Retain an instance so that you can call `resetState()` for fresh searches
+        scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                loadNextDataFromApi(page);
+            }
+        };
+        // Adds the scroll listener to RecyclerView
+        rvPosts.addOnScrollListener(scrollListener);
+
+    }
+
+    private void loadNextDataFromApi(int page) {
+        queryPosts(page);
     }
 
     private void fetchTimelineAsync(int i) {
@@ -74,17 +96,18 @@ public class FeedActivity extends AppCompatActivity {
         // `client` here is an instance of Android Async HTTP
         // getHomeTimeline is an example endpoint.
         adapter.clear();
-        queryPosts();
+        queryPosts(0);
         swipeContainer.setRefreshing(false);
     }
 
-    private void queryPosts(){
+    private void queryPosts(int page){
         // specify what type of data we want to query - Post.class
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         // include data referred by user key
         query.include(Post.KEY_USER);
         // limit query to latest 20 items
         query.setLimit(20);
+        query.setSkip(page);
         // order posts by creation date (newest first)
         query.addDescendingOrder("createdAt");
         // start an asynchronous call for posts
@@ -104,7 +127,8 @@ public class FeedActivity extends AppCompatActivity {
 
                 // save received posts to list and notify adapter of new data
                 allPosts.addAll(posts);
-                adapter.notifyDataSetChanged();
+                adapter.notifyItemRangeInserted(current_offset, 20);
+                current_offset = current_offset*(page+1);
             }
         });
     }
