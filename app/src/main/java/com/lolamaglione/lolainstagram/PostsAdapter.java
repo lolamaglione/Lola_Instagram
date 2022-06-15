@@ -1,6 +1,7 @@
 package com.lolamaglione.lolainstagram;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.lolamaglione.lolainstagram.activities.PostDetailActivity;
 import com.parse.ParseFile;
 
 import java.util.Date;
@@ -81,6 +83,19 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             tvTime = itemView.findViewById(R.id.tvTime);
             ivProfilePicture = itemView.findViewById(R.id.ivProfilePicture);
             tvUsernameCaption = itemView.findViewById(R.id.tvUsernameCaption);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAbsoluteAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION){
+                        Post post = posts.get(position);
+                        Intent intent = new Intent(context, PostDetailActivity.class);
+                        intent.putExtra(Post.class.getSimpleName(), post);
+                        context.startActivity(intent);
+                    }
+                }
+            });
 
         }
 
