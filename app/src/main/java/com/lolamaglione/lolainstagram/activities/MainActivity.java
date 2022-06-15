@@ -19,8 +19,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.lolamaglione.lolainstagram.EndlessRecyclerViewScrollListener;
 import com.lolamaglione.lolainstagram.Post;
 import com.lolamaglione.lolainstagram.R;
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private String photoFileName = "photo.jpg";
     public final String APP_TAG = "MyInstagramAPP";
     private Button btnFeed;
+    private BottomNavigationView bottomNavigationView;
 
 
 
@@ -63,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         ivPostImage = binding.ivPictureUpload;
         btnSubmit = binding.btnSubmit;
         btnFeed = binding.btnFeed;
+        bottomNavigationView = binding.bottomNavigation;
 
         //queryPosts();
 
@@ -87,6 +91,25 @@ public class MainActivity extends AppCompatActivity {
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(description, currentUser, photoFile);
+            }
+        });
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment;
+                switch(item.getItemId()) {
+                    case R.id.action_compose:
+                        Toast.makeText(MainActivity.this, "Compose!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_home:
+                        Toast.makeText(MainActivity.this, "Home!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_profile:
+                        Toast.makeText(MainActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return true;
             }
         });
 

@@ -127,7 +127,11 @@ public class FeedActivity extends AppCompatActivity {
 
                 // save received posts to list and notify adapter of new data
                 allPosts.addAll(posts);
-                adapter.notifyItemRangeInserted(current_offset, 20);
+                if (page == 0){
+                    adapter.notifyItemRangeInserted(page, 20);
+                } else{
+                    adapter.notifyItemRangeInserted(current_offset, 20);
+                }
                 current_offset = current_offset*(page+1);
             }
         });
