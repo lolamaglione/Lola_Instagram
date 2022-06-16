@@ -10,8 +10,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/activity_post_detail.xml" value="0.34791666666666665" />
         <entry key="app/src/main/res/layout/fragment_compose.xml" value="0.1722747802734375" />
+        <entry key="app/src/main/res/layout/fragment_evert_profile.xml" value="0.284688995215311" />
         <entry key="app/src/main/res/layout/fragment_posts.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.285772705078125" />
         <entry key="app/src/main/res/layout/grid_post.xml" value="0.1123199462890625" />
         <entry key="app/src/main/res/layout/item_post.xml" value="0.2750473022460937" />
         <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.18086853027343752" />

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.EveryProfileFragment">
+
+    <ImageView
+        android:id="@+id/ivEveryProfile"
+        android:layout_width="140dp"
+        android:layout_height="110dp"
+        android:layout_above="@+id/rvGridPostsEveryProfile"
+        android:layout_below="@+id/tvUsernameEveryProfile"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="75dp"
+        tools:src="@tools:sample/avatars" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGridPostsEveryProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="8dp" />
+
+    <TextView
+        android:id="@+id/tvUsernameEveryProfile"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="21dp"
+        android:text="Username"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold" />
+
+</RelativeLayout>
