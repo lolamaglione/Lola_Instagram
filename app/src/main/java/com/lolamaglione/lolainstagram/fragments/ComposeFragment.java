@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.lolamaglione.lolainstagram.Post;
@@ -46,6 +47,7 @@ public class ComposeFragment extends Fragment {
     private ImageView ivPostImage;
     private Button btnSubmit;
     private File photoFile;
+    ProgressBar pb;
     private String photoFileName = "photo.jpg";
     public static final String TAG = "Compose Fragment";
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
@@ -106,7 +108,7 @@ public class ComposeFragment extends Fragment {
         btnCaptureImage = view.findViewById(R.id.btnAddPicture);
         ivPostImage = view.findViewById(R.id.ivPictureUpload);
         btnSubmit = view.findViewById(R.id.btnSubmit);
-
+        pb = (ProgressBar) view.findViewById(R.id.pbLoading);
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,6 +119,7 @@ public class ComposeFragment extends Fragment {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pb.setVisibility(ProgressBar.VISIBLE);
                 String description = etDescription.getText().toString();
                 if (description.isEmpty()) {
                     Toast.makeText(getContext(), "Description can't be empty", Toast.LENGTH_SHORT).show();
@@ -130,6 +133,9 @@ public class ComposeFragment extends Fragment {
                 savePost(description, currentUser, photoFile);
             }
         });
+
+        // on some click or some loading we need to wait for...
+// run a background job and once complete
     }
 
     private void launchCamera() {
@@ -202,6 +208,7 @@ public class ComposeFragment extends Fragment {
                 Log.i(TAG, "Post save was succesful!");
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
+                pb.setVisibility(ProgressBar.INVISIBLE);
             }
         });
     }
