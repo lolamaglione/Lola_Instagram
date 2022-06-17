@@ -15,6 +15,9 @@ import com.parse.ParseFile;
 
 import java.util.List;
 
+/**
+ * Enables GridView in the profile page with the GridLayoutManager
+ */
 public class GridPostAdapter extends RecyclerView.Adapter<GridPostAdapter.ViewHolder> {
 
     private Context context;

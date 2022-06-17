@@ -5,16 +5,19 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ufi_heart_icon.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable-v24/ufi_save_icon.xml" value="0.111" />
+        <entry key="app/src/main/res/layout/activity_comment.xml" value="0.1691995947315096" />
         <entry key="app/src/main/res/layout/activity_feed.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1625" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.20253164556962025" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.203125" />
-        <entry key="app/src/main/res/layout/activity_post_detail.xml" value="0.34791666666666665" />
-        <entry key="app/src/main/res/layout/fragment_compose.xml" value="0.1722747802734375" />
-        <entry key="app/src/main/res/layout/fragment_evert_profile.xml" value="0.284688995215311" />
+        <entry key="app/src/main/res/layout/activity_post_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_compose.xml" value="0.19270172119140627" />
+        <entry key="app/src/main/res/layout/fragment_evert_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_posts.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.285772705078125" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.401788330078125" />
         <entry key="app/src/main/res/layout/grid_post.xml" value="0.1123199462890625" />
-        <entry key="app/src/main/res/layout/item_post.xml" value="0.2750473022460937" />
+        <entry key="app/src/main/res/layout/item_comment.xml" value="0.23641304347826086" />
+        <entry key="app/src/main/res/layout/item_post.xml" value="0.24298858642578128" />
         <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.18086853027343752" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.203125" />
       </map>

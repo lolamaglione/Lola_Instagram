@@ -39,6 +39,7 @@ import java.io.File;
  * A simple {@link Fragment} subclass.
  * Use the {@link ComposeFragment#newInstance} factory method to
  * create an instance of this fragment.
+ * Allows user to create a new post
  */
 public class ComposeFragment extends Fragment {
 

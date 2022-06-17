@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.lolamaglione.lolainstagram.activities.CommentActivity;
 import com.lolamaglione.lolainstagram.activities.PostDetailActivity;
 import com.lolamaglione.lolainstagram.fragments.ComposeFragment;
 import com.lolamaglione.lolainstagram.fragments.EveryProfileFragment;
@@ -96,6 +97,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
         private TextView tvUsernameCaption;
         private TextView tvLikes;
         private ImageButton ibLike;
+        private ImageButton ibComment;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -107,6 +109,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             tvUsernameCaption = itemView.findViewById(R.id.tvUsernameCaption);
             tvLikes = itemView.findViewById(R.id.tvLikes);
             ibLike = itemView.findViewById(R.id.ibLike);
+            ibComment = itemView.findViewById(R.id.ibComment);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -133,7 +136,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             tvUsername.setText(post.getUser().getUsername());
             Date createdAt = post.getCreatedAt();
             tvTime.setText(post.calculateTimeAgo(createdAt));
-            tvLikes.setText("" + post.getLikes());
+            tvLikes.setText("" + post.getLikes() + " likes");
             ParseFile image = post.getImage();
             if (image != null){
                 Glide.with(context).load(image.getUrl()).apply(new RequestOptions()).into(ivUploadImage);
@@ -173,6 +176,15 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
                         ParseUser.getCurrentUser().saveInBackground();
                         ibLike.setImageResource(R.drawable.ic_heart);
                     }
+                }
+            });
+
+            ibComment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, CommentActivity.class);
+                    intent.putExtra("post", post);
+                    context.startActivity(intent);
                 }
             });
 

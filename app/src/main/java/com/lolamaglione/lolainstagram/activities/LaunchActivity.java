@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.lolamaglione.lolainstagram.R;
 
+/**
+ * LaunchActivity creates the instagram logo launch page for the first 1 second you open the app.
+ */
 public class LaunchActivity extends AppCompatActivity {
 
     @Override

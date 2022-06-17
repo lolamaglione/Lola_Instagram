@@ -30,6 +30,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  * Use the {@link PostsFragment#newInstance} factory method to
  * create an instance of this fragment.
+ * allows user to see their feed
  */
 public class PostsFragment extends Fragment {
 

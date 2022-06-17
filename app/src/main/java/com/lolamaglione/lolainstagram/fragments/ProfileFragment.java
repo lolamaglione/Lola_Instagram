@@ -50,6 +50,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
+ * allows user to see their own profile
  */
 public class ProfileFragment extends Fragment {
 

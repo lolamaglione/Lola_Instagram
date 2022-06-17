@@ -27,6 +27,10 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
+/**
+ * main activity deals with the Fragments and the bottomNavigationView
+ * to access the PostFragment, ComposeFragment, and the ProfileFragment
+ */
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;

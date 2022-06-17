@@ -9,6 +9,9 @@ import com.parse.ParseUser;
 
 import java.util.Date;
 
+/**
+ * ParseObject Post that allows the user to make new posts with pictures, descriptions...
+ */
 @ParseClassName("Post")
 public class Post extends ParseObject {
 

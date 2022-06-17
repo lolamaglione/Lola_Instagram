@@ -37,6 +37,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  * Use the {@link EveryProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
+ * Allows user to access everyone else's profile
  */
 public class EveryProfileFragment extends Fragment {
 

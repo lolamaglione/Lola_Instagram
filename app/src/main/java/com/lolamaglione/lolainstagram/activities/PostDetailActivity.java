@@ -18,6 +18,9 @@ import com.parse.ParseFile;
 
 import java.util.Date;
 
+/**
+ * PostDetailActivity contains the details of a post (picture, likes, post, etc.).
+ */
 public class PostDetailActivity extends AppCompatActivity {
 
     private ImageView ivProfilePicture;
