@@ -67,6 +67,20 @@
             android:layout_marginBottom="10dp"
             app:srcCompat="@drawable/instagram_logo" />
 
+        <Button
+            android:id="@+id/btnSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnLogin"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="-100dp"
+            android:backgroundTint="#2196F3"
+            android:text="Button"
+            app:iconTint="#2196F3"
+            tools:drawableTint="#2196F3"
+            />
+
     </RelativeLayout>
 
 

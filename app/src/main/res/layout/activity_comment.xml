@@ -23,8 +23,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="2dp"
         android:layout_marginTop="2dp"
-        android:hint="write comment here..."
-        android:text="Comment" />
+        android:hint="write comment here..." />
 
     <Button
         android:id="@+id/btnComment"

@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.lolamaglione.lolainstagram.Post;
+import com.lolamaglione.lolainstagram.models.Post;
 import com.lolamaglione.lolainstagram.R;
 import com.lolamaglione.lolainstagram.databinding.ActivityMainBinding;
 import com.lolamaglione.lolainstagram.fragments.ComposeFragment;

@@ -1,4 +1,4 @@
-package com.lolamaglione.lolainstagram;
+package com.lolamaglione.lolainstagram.models;
 
 
 import com.parse.Parse;

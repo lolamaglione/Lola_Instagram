@@ -15,10 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lolamaglione.lolainstagram.EndlessRecyclerViewScrollListener;
-import com.lolamaglione.lolainstagram.Post;
-import com.lolamaglione.lolainstagram.PostsAdapter;
+import com.lolamaglione.lolainstagram.models.Post;
+import com.lolamaglione.lolainstagram.adapters.PostsAdapter;
 import com.lolamaglione.lolainstagram.R;
-import com.lolamaglione.lolainstagram.databinding.ActivityFeedBinding;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;

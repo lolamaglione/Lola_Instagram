@@ -1,4 +1,4 @@
-package com.lolamaglione.lolainstagram;
+package com.lolamaglione.lolainstagram.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,22 +14,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.lolamaglione.lolainstagram.R;
 import com.lolamaglione.lolainstagram.activities.CommentActivity;
 import com.lolamaglione.lolainstagram.activities.PostDetailActivity;
-import com.lolamaglione.lolainstagram.fragments.ComposeFragment;
 import com.lolamaglione.lolainstagram.fragments.EveryProfileFragment;
-import com.lolamaglione.lolainstagram.fragments.PostsFragment;
-import com.lolamaglione.lolainstagram.fragments.ProfileFragment;
-import com.parse.Parse;
+import com.lolamaglione.lolainstagram.models.Post;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;

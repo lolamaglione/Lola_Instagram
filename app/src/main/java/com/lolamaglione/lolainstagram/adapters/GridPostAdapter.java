@@ -1,16 +1,19 @@
-package com.lolamaglione.lolainstagram;
+package com.lolamaglione.lolainstagram.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.lolamaglione.lolainstagram.R;
+import com.lolamaglione.lolainstagram.activities.PostDetailActivity;
+import com.lolamaglione.lolainstagram.models.Post;
 import com.parse.ParseFile;
 
 import java.util.List;
@@ -63,6 +66,19 @@ public class GridPostAdapter extends RecyclerView.Adapter<GridPostAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivPost = itemView.findViewById(R.id.ivPost);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAbsoluteAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION){
+                        Post post = posts.get(position);
+                        Intent intent = new Intent(context, PostDetailActivity.class);
+                        intent.putExtra(Post.class.getSimpleName(), post);
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
 
         public void bind(Post post) {

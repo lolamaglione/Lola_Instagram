@@ -25,9 +25,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.lolamaglione.lolainstagram.Post;
+import com.lolamaglione.lolainstagram.models.Post;
 import com.lolamaglione.lolainstagram.R;
-import com.lolamaglione.lolainstagram.activities.MainActivity;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;

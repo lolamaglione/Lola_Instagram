@@ -13,21 +13,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.lolamaglione.lolainstagram.EndlessRecyclerViewScrollListener;
-import com.lolamaglione.lolainstagram.GridPostAdapter;
-import com.lolamaglione.lolainstagram.Post;
+import com.lolamaglione.lolainstagram.adapters.GridPostAdapter;
+import com.lolamaglione.lolainstagram.models.Post;
 import com.lolamaglione.lolainstagram.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.parse.ParseFile;
 import com.parse.ParseQuery;
-import com.parse.ParseUser;
 
 import java.io.File;
 import java.util.ArrayList;

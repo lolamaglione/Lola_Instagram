@@ -1,4 +1,4 @@
-package com.lolamaglione.lolainstagram;
+package com.lolamaglione.lolainstagram.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.lolamaglione.lolainstagram.R;
+import com.lolamaglione.lolainstagram.models.Comment;
 
 import java.util.List;
 

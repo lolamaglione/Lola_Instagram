@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
+    private Button btnSignUp;
     private ActivityLoginBinding binding;
 
 
@@ -44,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         etUsername = binding.etUsername;
         etPassword = binding.etPassword;
         btnLogin = binding.btnLogin;
+        btnSignUp = binding.btnSignup;
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,20 +56,26 @@ public class LoginActivity extends AppCompatActivity {
                 loginUser(username, password);
             }
         });
+
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                LoginActivity.this.startActivity(intent);
+            }
+        });
     }
 
-    private void loginUser(String username, String password){
+    public void loginUser(String username, String password){
         Log.i(TAG, "Attempting to login user: " + username);
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if(e != null){
                     Log.e(TAG, "Issue with Login");
-                    // TODO: bettwe error handling
                     Toast.makeText(LoginActivity.this, "Issue with Login", Toast.LENGTH_SHORT);
                     return;
                 }
-                // TODO: navigate to the main activity if the user has signed in properly
                 goMainActivity();
                 Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT);
             }

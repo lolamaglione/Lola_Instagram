@@ -11,10 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.lolamaglione.lolainstagram.Comment;
-import com.lolamaglione.lolainstagram.CommentAdapter;
-import com.lolamaglione.lolainstagram.Post;
-import com.lolamaglione.lolainstagram.R;
+import com.lolamaglione.lolainstagram.models.Comment;
+import com.lolamaglione.lolainstagram.adapters.CommentAdapter;
+import com.lolamaglione.lolainstagram.models.Post;
 import com.lolamaglione.lolainstagram.databinding.ActivityCommentBinding;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -67,7 +66,6 @@ public class CommentActivity extends AppCompatActivity {
                 }
                 Log.i(TAG, "Comment being uploaded");
                 uploadComment(comment, post);
-                adapter.notifyItemInserted(0);
             }
         });
 
@@ -112,6 +110,8 @@ public class CommentActivity extends AppCompatActivity {
                 etComment.setText("");
             }
         });
+        allComments.add(0, comment_final);
+        adapter.notifyItemInserted(0);
     }
 
 

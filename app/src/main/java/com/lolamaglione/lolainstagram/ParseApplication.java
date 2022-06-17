@@ -2,6 +2,8 @@ package com.lolamaglione.lolainstagram;
 
 import android.app.Application;
 
+import com.lolamaglione.lolainstagram.models.Comment;
+import com.lolamaglione.lolainstagram.models.Post;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
